@@ -151,3 +151,55 @@ function exercise5(): string
 
 var_dump(exercise5());
 echo PHP_EOL;
+
+//6 task
+function array_map_custom(callable $callback, array $array): array
+{
+    $result = [];
+    foreach ($array as $item) {
+        $result[] = $callback($item);
+    }
+    return $result;
+}
+
+$array = [1, 2, 3, 4, 5];
+$result = array_map_custom(function($x) { return $x * $x; }, $array);
+
+print_r($result);
+
+//7 task
+function array_filter_custom(array $array, ?callable $callback): array
+{
+    $filteredArray = [];
+    foreach ($array as $key => $value) {
+        if (!isset($callback) || $callback($value, $key)) {
+            $filteredArray[$key] = $value;
+        }
+    }
+    return $filteredArray;
+}
+
+$array = [1, 2, 3, 4, 5];
+
+$filteredArray = array_filter_custom($array, function($value) {
+    return $value % 2 === 0;
+});
+
+print_r($filteredArray);
+
+//8 task
+function array_reduce_custom(array $array, callable $callback, $carry)
+{
+    foreach ($array as $key => $value) {
+        $carry = $callback($carry, $value, $key);
+    }
+    return $carry;
+}
+
+$array = [1, 2, 3, 4];
+
+$reduced = array_reduce_custom($array, function($carry, $value) {
+    return $carry + $value;
+}, 0);
+
+echo $reduced;
