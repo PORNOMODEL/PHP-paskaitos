@@ -203,3 +203,4 @@ $reduced = array_reduce_custom($array, function($carry, $value) {
 }, 0);
 
 echo $reduced;
+echo PHP_EOL;
