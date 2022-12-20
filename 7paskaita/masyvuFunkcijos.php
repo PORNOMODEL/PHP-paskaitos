@@ -130,9 +130,9 @@ function exercise6(): int
 
     $prices = array_map(function($item) use ($lowPriceItems) {
         if (in_array($item['name'], $lowPriceItems)) {
-            return $item['priceLow'] + $item['quantity'];
+            return $item['priceLow'] * $item['quantity'];
         } else {
-            return $item['priceRegular'] + $item['quantity'];
+            return $item['priceRegular'] * $item['quantity'];
         }
     }, $orderItems);
 
