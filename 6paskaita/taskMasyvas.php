@@ -227,18 +227,14 @@ function getNumbers(): array
 //
 //echo $sum;
 
-function sumEvenNumbers(numbers: array): number
-{
-    return array_sum(array_filter($numbers, function($num) {
-        return $num % 2 === 0;
-    }));
-}
-
-$numbers = getNumbers();
-$sum = sumEvenNumbers($numbers);
-
-echo $sum;
-
-
-
-
+//function sumEvenNumbers(numbers: array): number
+//{
+//    return array_sum(array_filter($numbers, function($num) {
+//        return $num % 2 === 0;
+//    }));
+//}
+//
+//$numbers = getNumbers();
+//$sum = sumEvenNumbers($numbers);
+//
+//echo $sum;
