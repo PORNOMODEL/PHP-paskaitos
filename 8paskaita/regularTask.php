@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+
 //1 task
 function exercise1(): int
 {
@@ -70,13 +70,20 @@ echo PHP_EOL;
 //5 task
 function exercise5(int $number): void
 {
-    while ($number > 0) {
-        echo $number . PHP_EOL;
-        $number -= 2;
+    if ($number > 0) {
+        for ($i = $number; $i >= 0; $i -= 2) {
+            echo $i . "\n";
+        }
+    } else {
+        for ($i = $number; $i <= 0; $i +=2) {
+            echo $i . "\n";
+        }
     }
-    echo 0 . PHP_EOL;
 }
 exercise5(5);
+echo PHP_EOL;
+exercise5(-5);
+
 
 
 
