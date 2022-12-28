@@ -86,35 +86,6 @@ function exercise5(): void
 exercise5();
 echo PHP_EOL;
 
-//function exercise5(): void
-//{
-//    $date = DateTime::createFromFormat('jS M Y H:i:s A', '15th Jan 2021 8:15:01 PM');
-//
-//    $date->add(new DateInterval('P2W'));
-//    echo $date->format('Y-m-d H:i:s') . "\n";
-//
-//    $date->add(new DateInterval('P10Y'));
-//    echo $date->format('Y-m-d H:i:s') . "\n";
-//
-//    $date->sub(new DateInterval('PT5H'));
-//    echo $date->format('Y-m-d H:i:s') . "\n";
-//
-//    $date->modify('last day of this month');
-//    echo $date->format('Y-m-d H:i:s') . "\n";
-//
-//    $date->modify('first day of this month');
-//    echo $date->format('Y-m-d H:i:s') . "\n";
-//
-//    $date->modify('next Tuesday');
-//    echo $date->format('Y-m-d H:i:s') . "\n";
-//
-//    $date->sub(new DateInterval('P1DT8H'));
-//    echo $date->format('Y-m-d H:i:s') . "\n";
-//
-//}
-//exercise5();
-
-//6 task
 function exercise6(): void
 {
     $products = [
