@@ -86,6 +86,7 @@ function exercise5(): void
 exercise5();
 echo PHP_EOL;
 
+//6 task
 function exercise6(): void
 {
     $products = [
