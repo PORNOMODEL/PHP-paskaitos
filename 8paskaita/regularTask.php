@@ -83,7 +83,77 @@ function exercise5(int $number): void
 exercise5(5);
 echo PHP_EOL;
 exercise5(-5);
+echo PHP_EOL;
 
+//6 task
+function exercise6(array $numbers): array
+{
+    $statistics = [
+        'suma' => 0,
+        'sandauga' => 1,
+        'vidurkis' => 0,
+        'maksimumas' => PHP_INT_MIN,
+        'minimumas' => PHP_INT_MAX,
+        'skirtumas_max_min' => 0
+    ];
+
+    $count = 0;
+
+    foreach ($numbers as $number) {
+        if ($number > 0) {
+            $statistics['suma'] += $number;
+            $statistics['sandauga'] *= $number;
+            $statistics['maksimumas'] = max($statistics['maksimumas'], $number);
+            $statistics['minimumas'] = min($statistics['minimumas'], $number);
+            $count++;
+        }
+    }
+
+    if ($count > 0) {
+        $statistics['vidurkis'] = $statistics['suma'] / $count;
+    }
+
+    if ($statistics['maksimumas'] > PHP_INT_MIN && $statistics['minimumas'] < PHP_INT_MAX) {
+        $statistics['skirtumas_max_min'] = $statistics['maksimumas'] - $statistics['minimumas'];
+    }
+
+    return $statistics;
+}
+$result = exercise6([1, 3, 40]);
+print_r($result);
+echo PHP_EOL;
+
+//7 task
+function exercise7(int $height, int $width): void
+{
+    for ($i = 0; $i < $height; $i++) {
+        for ($j = 0; $j < $width; $j++) {
+            echo "[]";
+        }
+        echo "\n";
+    }
+}
+exercise7(3, 4);
+echo PHP_EOL;
+
+//8 task
+function exercise8(array $items, int $partsCount = 2): array
+{
+    $result = [];
+    $partSize = ceil(count($items) / $partsCount);
+
+    for ($i = 0; $i < $partsCount; $i++) {
+        $result[] = array_slice($items, $i * $partSize, $partSize);
+    }
+
+    return $result;
+}
+$items = [1, 2, 3, 4, 5, 6, 7];
+$parts = exercise8($items, 4);
+print_r($parts);
+
+$parts = exercise8($items);
+print_r($parts);
 
 
 
