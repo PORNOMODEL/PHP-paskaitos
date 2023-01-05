@@ -105,11 +105,61 @@ function exercise6(): void
     ];
 
     foreach ($products as $product) {
-        $name = $product['name'] . "\n";
-        $last_purchase = $product['last_purchase'] . "\n";
-        echo "$name $last_purchase";
+        $name = $product['name'];
+        $last_purchase = $product['last_purchase'];
+        echo $name . ' ' . $last_purchase.PHP_EOL;
     }
 }
 
 exercise6();
 echo PHP_EOL;
+
+//7 task
+function exercise7($date1, $date2): string
+{
+    $diff = $date1->diff($date2);
+    if ($diff->invert === 0) {
+        return 'First date is newer';
+    } else {
+        return 'Second date is newer';
+    }
+}
+echo exercise7(date_create('2022-01-25 17:13:25'), date_create('2020-01-25 17:13:25')).PHP_EOL;
+echo exercise7(date_create('2020-01-25 17:13:25'), date_create('2022-01-25 17:13:25')).PHP_EOL;
+echo PHP_EOL;
+
+//8 task
+function exercise8($date): void
+{
+    $now = new DateTime();
+    $diff = $now->diff($date);
+
+    if ($date > $now) {
+        echo "Supplied date is in the future";
+    } else {
+        $days = $diff->format('%a');
+        if ($days == 1) {
+            echo "Supplied date was 1 day ago";
+        } else {
+            echo "Supplied date was {$days} days ago";
+        }
+    }
+}
+echo exercise8(date_create('2020-01-25 17:13:25')).PHP_EOL;
+echo exercise8(date_create('2023-01-25 17:13:25')).PHP_EOL;
+echo PHP_EOL;
+
+//9 task
+function exercise9($date): void
+{
+    $now = new DateTime();
+    $diff = $now->diff($date);
+
+    if ($diff->invert == 0) {
+        echo 'Supplied date is in the future';
+    } else {
+        echo $diff->format('Supplied date was %y years %m months %d days');
+    }
+}
+echo exercise9(date_create('2020-01-25 17:13:25')).PHP_EOL;
+echo exercise9(date_create('2023-01-25 17:13:25')).PHP_EOL;-
